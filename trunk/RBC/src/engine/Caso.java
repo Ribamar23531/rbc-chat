@@ -4,7 +4,23 @@ public class Caso {
 	
 	private Entrada problema;
 	private Saida solucao;
+	private boolean avaliacao;
 	
+	public Caso(Entrada a, Saida b){
+		this.problema = a;
+		this.solucao = b;
+	}
+	
+	public Caso(Entrada a){
+		this.problema = a;
+	}
+
+	public boolean isAvaliacao() {
+		return avaliacao;
+	}
+	public void setAvaliacao(boolean avaliacao) {
+		this.avaliacao = avaliacao;
+	}
 	public Entrada getProblema() {
 		return problema;
 	}

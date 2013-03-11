@@ -14,10 +14,10 @@ public class Main {
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner (System.in);   
-		System.out.println("O que desejas fazer? \n 1 - Reconhecer novo caso");
+		System.out.println("O que desejas fazer? \n 1 - Reconhecer novo caso \n 2 - Utilizar o programa");
 		String opc = scan.next();
 		System.out.println (opc);
-		Caso caso = new Caso();
+		//Caso caso = new Caso();
 		
 		try {
 			Connection con = Conecta.getConexao();
@@ -36,13 +36,17 @@ public class Main {
                     String str = in.readLine();
                     
                     if (str.startsWith("Descrição:")){
-                    	caso.setProblema(new Entrada());
+                    	Caso caso = new Caso(new Entrada());
                     }
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
 				System.out.println("Coloque o novo caso no mesmo diretório do programa e então re-execute, passando o arquivo como parâmetro");
+		}
+		
+		if (opc == "2"){
+			
 		}
 	}
 
