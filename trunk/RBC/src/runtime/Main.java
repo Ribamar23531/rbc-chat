@@ -1,8 +1,11 @@
 package runtime;
-
+import java.sql.Connection;  
+import java.sql.Statement;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Scanner;
+
+import database.Conecta;
 
 import engine.Caso;
 import engine.Entrada;
@@ -15,6 +18,16 @@ public class Main {
 		String opc = scan.next();
 		System.out.println (opc);
 		Caso caso = new Caso();
+		
+		try {
+			Connection con = Conecta.getConexao();
+			Statement statment = con.createStatement();
+			statment.execute("INSERT INTO tabe1 VALUES ");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		if (opc == "1"){
 			try {
 				BufferedReader in = new BufferedReader(new FileReader(args[0]));
