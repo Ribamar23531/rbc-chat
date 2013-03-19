@@ -40,13 +40,16 @@ public class Main {
                     String str = in.readLine();
                     
                     if (str.startsWith("Descri√ß√£o: ")){
-                    	Caso caso = new Caso(new Entrada());
+                    	Caso caso = new Caso(new Entrada(str.substring(str.indexOf("DescriÁ„o: "))));
+                    	//String[] entrada_list = caso.getEntrada_asList();
                     
                     	if (str.startsWith("Solu√ß√£o: ")){
-                    		caso.setSolucao(new Saida());
+                    		caso.setSolucao(new Saida(str.substring(str.indexOf("SoluÁ„o: "))));
+                    		//String[] saida_list = caso.getSaida_asList();
                     		
                     		if (str.startsWith("Avalia√ß√£o: ")){
-                    			caso.setAvaliacao(true); // Verificar o valor da avalia√ß√£o
+                    			caso.setAvaliacao(Boolean.parseBoolean(str.substring(str.indexOf("AvaliaÁ„o: ")))); // Verificar o valor da avalia√ß√£o
+                    			//Salvar caso no banco;
                     		}
                     	}
                     		
@@ -69,6 +72,10 @@ public class Main {
 					if (entrada.equalsIgnoreCase("Sair")){
 						condicao = false;
 					}
+					else{
+						//caso = banco.casoSemelhante()
+						//if (caso.getAvalicao() == True){caso.getSolucao();}
+						}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

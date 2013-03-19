@@ -2,14 +2,18 @@ package engine;
 
 public class Entrada {
 	
-	private String nome;
-
-	public String getNome() {
-		return nome;
+	private String texto;
+	
+	public Entrada(String str){
+		this.texto = str;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public String getTexto() {
+		return texto;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;
 	}
 
 }
