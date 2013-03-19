@@ -1,13 +1,10 @@
 package runtime;
-import java.sql.Connection;  
-import java.sql.Statement;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
-
-import database.Conecta;
 
 import engine.Caso;
 import engine.Entrada;
