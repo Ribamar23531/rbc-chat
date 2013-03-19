@@ -1,0 +1,136 @@
+package database;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class BancoDeDados {
+
+	/**
+	 * Classe responsável pela criação e conexão com o bando de dados(SGBDR
+	 * MySQL) do projeto.
+	 */
+
+	public static Connection CONNECTION;
+	public static Statement STATEMENT;
+	public static PreparedStatement PREPAREDSTATEMENT;
+	public static ResultSet RESULTSET;
+	private String sql;
+
+	/**
+	 * Conectar Banco de Dados padrão em MySQL
+	 * 
+	 * @exception Exceção SQL
+	 */
+	public void conectarLocal() {
+		try {
+			Class.forName(util.Banco.DRIVER_MYSQL);
+			try {
+				CONNECTION = DriverManager.getConnection(
+						util.Banco.CONEXAO_BANCO_LOCAL, util.Banco.USER_MYSQL,
+						util.Banco.PASSWORD_MYSQL);
+			} catch (SQLException sQLException) {
+				sQLException.printStackTrace();
+			}
+		} catch (ClassNotFoundException classNotFoundException) {
+			classNotFoundException.printStackTrace();
+		}
+	}
+
+	/**
+	 * Conectar Banco de Dados RBC em MySQL
+	 * 
+	 * @exception Exceção SQL
+	 */
+	public void conectarBanco() {
+		try {
+			Class.forName(util.Banco.DRIVER_MYSQL);
+			try {
+				CONNECTION = DriverManager.getConnection(
+						util.Banco.CONEXAO_BANCO_LOCAL + util.Banco.NOME_BANCO,
+						util.Banco.USER_MYSQL, util.Banco.PASSWORD_MYSQL);
+			} catch (SQLException sQLException) {
+				sQLException.printStackTrace();
+			}
+		} catch (ClassNotFoundException classNotFoundException) {
+			classNotFoundException.printStackTrace();
+
+		}
+	}
+
+	/**
+	 * Criar Banco de Dados RBC se não existir.
+	 * 
+	 * @exception Exceção
+	 *                SQL
+	 * @exception Exceção
+	 *                SQL
+	 */
+	public void criarBanco() {
+		try {
+			sql = "CREATE DATABASE IF NOT EXISTS RBC;";
+			STATEMENT = CONNECTION.createStatement();
+
+			try {
+				STATEMENT.executeUpdate(sql);
+			} catch (SQLException sQLException) {
+				sQLException.printStackTrace();
+			}
+		} catch (SQLException sQLException) {
+			sQLException.printStackTrace();
+		}
+	}
+
+	/**
+	 * Criar tabelas no Banco de Dados RBC.
+	 * 
+	 * @param comando
+	 *            Comando a ser executado em SQL para a criação de tabela
+	 * @exception Exceção
+	 *                SQL
+	 * @exception Exceção
+	 *                SQL
+	 */
+	public void adicionarTabelas(String comando) {
+
+		try {
+			STATEMENT = CONNECTION.createStatement();
+
+			try {
+				STATEMENT.executeUpdate(comando);
+
+			} catch (SQLException sQLException) {
+				sQLException.printStackTrace();
+			}
+		} catch (SQLException sQLException) {
+			sQLException.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * Cria todas as Tabelas no BD RCB caso elas não existam.
+	 */
+	public void criarTabelas() {
+		adicionarTabelaCaso();
+	}
+
+	/**
+	 * Método para adicionar a tabela caso ao bando de dados.
+	 */
+	public void adicionarTabelaCaso() {
+
+		sql = "CREATE TABLE IF NOT EXISTS caso ("
+				+ "id INT NOT NULL AUTO_INCREMENT,"
+				+ "descricao TEXT NOT NULL,"
+				+ "solucao TEXT NOT NULL,"
+				+ "avaliacao BIT(1) NOT NULL DEFAULT 0,"
+				+ "CONSTRAINT pk_id PRIMARY KEY (id)"
+				+ ") ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+
+		adicionarTabelas(sql);
+	}
+}
