@@ -2,14 +2,18 @@ package engine;
 
 public class Saida {
 	
-	private String nome;
+	private String texto;
 	
-	public String getNome() {
-		return nome;
+	public Saida(String txt){
+		this.texto = txt;
+	}
+	
+	public String getTexto() {
+		return texto;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setTexto(String texto) {
+		this.texto = texto;
 	}
 
 }

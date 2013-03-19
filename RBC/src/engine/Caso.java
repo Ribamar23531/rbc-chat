@@ -33,6 +33,15 @@ public class Caso {
 	public void setSolucao(Saida solucao) {
 		this.solucao = solucao;
 	}
-
-
+	
+	public String[] getEntrada_asList(){
+		String entrada = this.problema.getTexto();
+		return entrada.split(" ");
+	}
+	
+	public String[] getSaida_asList(){
+		String saida = this.solucao.getTexto();
+		return saida.split(" ");
+	}
+	
 }
