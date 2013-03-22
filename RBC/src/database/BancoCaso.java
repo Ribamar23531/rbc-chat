@@ -3,6 +3,8 @@ package database;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import engine.Caso;
+
 public class BancoCaso extends Operacoes {
 	
 	private String sql;
@@ -12,10 +14,12 @@ public class BancoCaso extends Operacoes {
 	 * 
 	 * @param novoCaso
 	 */
-	public void cadastrarCaso(Object novoCaso) {
+	public void cadastrarCaso(Caso novoCaso) {
 
 		sql = "INSERT INTO rbc.caso (id, descricao, solucao, avaliacao)"
-				+ "VALUES ('" + "')";
+				+ "VALUES ('" + novoCaso.getProblema().getTexto() + "', " 
+				+ "'" + novoCaso.getSolucao().getTexto() + "', "
+				+ novoCaso.getAvaliacao() + "')";
 
 		executeStatement(sql);
 	}
@@ -67,16 +71,16 @@ public class BancoCaso extends Operacoes {
 	 * @param caso
 	 *            é o objeto caso que terá os dados modificados.
 	 */
-	public void atualizarCaso(Object caso) {
+	public void atualizarCaso(Caso caso) {
 
 		sql = "UPDATE rbc.caso SET descricao = ?, solucao = ?, avaliacao = ? WHERE id = ?;";
 
 		try {
 			BancoDeDados.PREPAREDSTATEMENT = BancoDeDados.CONNECTION
 					.prepareStatement(sql);
-			BancoDeDados.PREPAREDSTATEMENT.setString(1, "descricao");
-			BancoDeDados.PREPAREDSTATEMENT.setString(2, "solucao");
-			BancoDeDados.PREPAREDSTATEMENT.setInt(3, 00); // Obs
+			BancoDeDados.PREPAREDSTATEMENT.setString(1, caso.getProblema().getTexto());
+			BancoDeDados.PREPAREDSTATEMENT.setString(2, caso.getSolucao().getTexto());
+			BancoDeDados.PREPAREDSTATEMENT.setInt(3, caso.getAvaliacao());
 
 			BancoDeDados.PREPAREDSTATEMENT.execute();
 			BancoDeDados.PREPAREDSTATEMENT.close();
@@ -91,7 +95,7 @@ public class BancoCaso extends Operacoes {
 	 * @param caso
 	 *            é o usuário que será removido
 	 */
-	public void removerUsuario(Object caso) {
+	public void removerUsuario(Caso caso) {
 
 		sql = "DELETE FROM rbc.caso WHERE id = ?;";
 
