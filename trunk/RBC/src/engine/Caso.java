@@ -4,7 +4,7 @@ public class Caso {
 	
 	private Entrada problema;
 	private Saida solucao;
-	private boolean avaliacao;
+	private int avaliacao;
 	
 	public Caso(Entrada a, Saida b){
 		this.problema = a;
@@ -15,10 +15,10 @@ public class Caso {
 		this.problema = a;
 	}
 
-	public boolean isAvaliacao() {
+	public int getAvaliacao() {
 		return avaliacao;
 	}
-	public void setAvaliacao(boolean avaliacao) {
+	public void setAvaliacao(int avaliacao) {
 		this.avaliacao = avaliacao;
 	}
 	public Entrada getProblema() {
