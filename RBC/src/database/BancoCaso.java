@@ -1,16 +1,15 @@
 package database;
 
+import engine.Caso;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import engine.Caso;
 
 public class BancoCaso extends Operacoes {
 	
 	private String sql;
 
 	/**
-	 * Método que cadastra o caso ao banco de dados.
+	 * MÃ©todo que cadastra o caso ao banco de dados.
 	 * 
 	 * @param novoCaso
 	 */
@@ -45,7 +44,7 @@ public class BancoCaso extends Operacoes {
 			try {
 				while (BancoDeDados.RESULTSET.next()) {
 
-					// Variavel temporária para a consulta dos dados
+					// Variavel temporï¿½ria para a consulta dos dados
 					String consulta = BancoDeDados.RESULTSET
 							.getString("descricao")
 							+ " - "
@@ -69,7 +68,7 @@ public class BancoCaso extends Operacoes {
 	 * Atualiza os dados do caso no banco de dados.
 	 * 
 	 * @param caso
-	 *            é o caso que terá os dados modificados.
+	 *            Ã‰ o caso que terï¿½ os dados modificados.
 	 */
 	public void atualizarCaso(Caso caso) {
 
@@ -90,10 +89,10 @@ public class BancoCaso extends Operacoes {
 	}
 
 	/**
-	 * Remove o caso do banco de dados da aplicação.
+	 * Remove o caso do banco de dados da aplicaÃ§Ã£o.
 	 * 
 	 * @param caso
-	 *            é o caso que será removido
+	 *            Ã© o caso que serÃ¡ removido
 	 */
 	public void removerCaso(Caso caso) {
 

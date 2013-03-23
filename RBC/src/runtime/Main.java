@@ -37,15 +37,15 @@ public class Main {
                     String str = in.readLine();
                     
                     if (str.startsWith("Descri√ß√£o: ")){
-                    	Caso caso = new Caso(new Entrada(str.substring(str.indexOf("DescriÁ„o: "))));
+                    	Caso caso = new Caso(new Entrada(str.substring(str.indexOf("Descri√ß√£o: "))));
                     	//String[] entrada_list = caso.getEntrada_asList();
                     
-                    	if (str.startsWith("SoluÁ„o: ")){
-                    		caso.setSolucao(new Saida(str.substring(str.indexOf("SoluÁ„o: "))));
+                    	if (str.startsWith("Solu√ß√£o: ")){
+                    		caso.setSolucao(new Saida(str.substring(str.indexOf("Solu√ß√£o: "))));
                     		//String[] saida_list = caso.getSaida_asList();
                     		
-                    		if (str.startsWith("AvaliaÁ„o: ")){
-                    			caso.setAvaliacao(Integer.parseInt(str.substring(str.indexOf("AvaliaÁ„o: ")))); // Verificar o valor da avalia√ß√£o
+                    		if (str.startsWith("Avalia√ß√£o: ")){
+                    			caso.setAvaliacao(Integer.parseInt(str.substring(str.indexOf("Avalia√ß√£o: ")))); // Verificar o valor da avalia√ß√£o
                     			//Salvar caso no banco;
                     		}
                     	}
