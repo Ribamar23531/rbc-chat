@@ -64,13 +64,27 @@ public class Main {
 						condicao = false;
 					}
 					else{
-						//caso = banco.casoSemelhante()
-						//if (caso.getAvalicao() == True){caso.getSolucao();}
+						Caso caso = new Caso(new Entrada(entrada));
+						Caso caso_recuperado = banco.casoSemelhante(caso);
+						if (caso_recuperado.getAvaliacao() == 1){
+							caso.setSolucao(caso_recuperado.getSolucao());
+							System.out.println("Xaat disse: "+ caso.getSolucao().getTexto());
+							}
+						System.out.println("Por favor, avalie minha resposta. Responda Sim ou Nao");
+						String esc = scan.next();
+						if (esc.equalsIgnoreCase("Sim") || esc.equalsIgnoreCase("S")){
+							System.out.println("A solucao oferecia por mim, foi boa? Se sim, responda Sim ou s");
+							String a = scan.next();
+							if(a.equalsIgnoreCase("Sim")|| a.equalsIgnoreCase("S")){
+								banco.cadastrarCaso(caso);
+							}
+						}
+						
 						}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-					System.out.println("Desculpe, ação não suportada!");} 
+					System.out.println("Desculpe, ação nao suportada!");} 
 			}
 		}
 		
