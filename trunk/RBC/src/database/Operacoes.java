@@ -5,7 +5,7 @@ import java.sql.SQLException;
 public abstract class Operacoes {
 
 	/**
-	 * Método responsável por realizar o Statement para inserir dados no banco.
+	 * Metodo responsavel por realizar o Statement para inserir dados no banco.
 	 * 
 	 * @param sql
 	 *            Sql a ser usada para inserir os dados.
