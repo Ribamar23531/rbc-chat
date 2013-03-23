@@ -77,6 +77,7 @@ public class Main {
 							String a = scan.next();
 							if(a.equalsIgnoreCase("Sim")|| a.equalsIgnoreCase("S")){
 								banco.cadastrarCaso(caso);
+								
 							}
 						}
 						
