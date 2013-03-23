@@ -40,11 +40,11 @@ public class Main {
                     	Caso caso = new Caso(new Entrada(str.substring(str.indexOf("Descrição: "))));
                     	//String[] entrada_list = caso.getEntrada_asList();
                     
-                    	if (str.startsWith("SoluÃ§Ã£o: ")){
+                    	if (str.startsWith("Solução: ")){
                     		caso.setSolucao(new Saida(str.substring(str.indexOf("Solução: "))));
                     		//String[] saida_list = caso.getSaida_asList();
                     		
-                    		if (str.startsWith("AvaliaÃ§Ã£o: ")){
+                    		if (str.startsWith("Avaliação: ")){
                     			caso.setAvaliacao(Integer.parseInt(str.substring(str.indexOf("Avaliação: ")))); // Verificar o valor da avaliaÃ§Ã£o
                     			//Salvar caso no banco;
                     		}
