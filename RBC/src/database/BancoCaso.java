@@ -18,8 +18,8 @@ public class BancoCaso extends Operacoes {
 
 		sql = "INSERT INTO rbc.caso (id, descricao, solucao, avaliacao)"
 				+ "VALUES ('" + novoCaso.getProblema().getTexto() + "', " 
-				+ "'" + novoCaso.getSolucao().getTexto() + "', "
-				+ novoCaso.getAvaliacao() + "')";
+				+ "'" + novoCaso.getSolucao().getTexto()
+				+ "', "	+ novoCaso.getAvaliacao() + "')";
 
 		executeStatement(sql);
 	}
@@ -27,10 +27,10 @@ public class BancoCaso extends Operacoes {
 	/**
 	 * Lista todos os caso cadastrados no sistema.
 	 * 
-	 * @return um ArrayList de String com nome-matricula dos usuários
+	 * @return um ArrayList de String com descricao-id dos casos
 	 *         cadastrados.
 	 */
-	public ArrayList<Object> listarUsuario() {
+	public ArrayList<Object> listarCaso() {
 
 		ArrayList<Object> listaCaso = new ArrayList<>();
 
@@ -69,7 +69,7 @@ public class BancoCaso extends Operacoes {
 	 * Atualiza os dados do caso no banco de dados.
 	 * 
 	 * @param caso
-	 *            é o objeto caso que terá os dados modificados.
+	 *            é o caso que terá os dados modificados.
 	 */
 	public void atualizarCaso(Caso caso) {
 
@@ -93,9 +93,9 @@ public class BancoCaso extends Operacoes {
 	 * Remove o caso do banco de dados da aplicação.
 	 * 
 	 * @param caso
-	 *            é o usuário que será removido
+	 *            é o caso que será removido
 	 */
-	public void removerUsuario(Caso caso) {
+	public void removerCaso(Caso caso) {
 
 		sql = "DELETE FROM rbc.caso WHERE id = ?;";
 

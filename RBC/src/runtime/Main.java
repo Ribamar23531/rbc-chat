@@ -45,7 +45,7 @@ public class Main {
                     		//String[] saida_list = caso.getSaida_asList();
                     		
                     		if (str.startsWith("Avalia√ß√£o: ")){
-                    			caso.setAvaliacao(Boolean.parseBoolean(str.substring(str.indexOf("AvaliaÁ„o: ")))); // Verificar o valor da avalia√ß√£o
+                    			caso.setAvaliacao(Integer.parseInt(str.substring(str.indexOf("AvaliaÁ„o: ")))); // Verificar o valor da avalia√ß√£o
                     			//Salvar caso no banco;
                     		}
                     	}
