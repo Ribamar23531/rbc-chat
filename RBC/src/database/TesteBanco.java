@@ -20,7 +20,7 @@ public class TesteBanco {
 
         
         BancoCaso bancoCaso = new BancoCaso();
-        //bancoCaso.cadastrarCaso(caso);
+        bancoCaso.cadastrarCaso(caso);
 
         
         System.out.println(bancoCaso.casoSemelhante(caso).getSolucao().getTexto());
