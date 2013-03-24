@@ -18,8 +18,10 @@ public class TesteBanco {
         Caso caso = new Caso(entrada, saida);
         caso.setAvaliacao(1);
 
+        
         BancoCaso bancoCaso = new BancoCaso();
-        bancoCaso.cadastrarCaso(caso);
+        //bancoCaso.cadastrarCaso(caso);
 
+        System.out.println(bancoCaso.casoSemelhante(caso).getSolucao().getTexto());
     }
 }
