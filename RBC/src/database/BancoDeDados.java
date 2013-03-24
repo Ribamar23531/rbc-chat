@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class BancoDeDados {
 
     /**
-     * Classe respons�vel pela cria��o e conex�o com o bando de dados(SGBDR
+     * Classe responsavel pela criação e conexão com o bando de dados(SGBDR
      * MySQL) do projeto.
      */
     public static Connection CONNECTION;
@@ -19,12 +19,19 @@ public class BancoDeDados {
     public static ResultSet RESULTSET;
     private String sql;
 
+    public BancoDeDados() {
+        conectarLocal();
+        criarBanco();
+        conectarBanco();
+        criarTabelas();
+    }
+
     /**
-     * Conectar Banco de Dados padr�o em MySQL
+     * Conectar Banco de Dados padrão em MySQL
      *
-     * @exception Exce��o SQL
+     * @exception Exceção SQL
      */
-    public void conectarLocal() {
+    private void conectarLocal() {
         try {
             Class.forName(util.Banco.DRIVER_MYSQL);
             try {
@@ -42,9 +49,9 @@ public class BancoDeDados {
     /**
      * Conectar Banco de Dados RBC em MySQL
      *
-     * @exception Exce��o SQL
+     * @exception Exceção SQL
      */
-    public void conectarBanco() {
+    private void conectarBanco() {
         try {
             Class.forName(util.Banco.DRIVER_MYSQL);
             try {
@@ -61,12 +68,12 @@ public class BancoDeDados {
     }
 
     /**
-     * Criar Banco de Dados RBC se n�o existir.
+     * Criar Banco de Dados RBC se não existir.
      *
-     * @exception Exce��o SQL
-     * @exception Exce��o SQL
+     * @exception Exceção SQL
+     * @exception Exceção SQL
      */
-    public void criarBanco() {
+    private void criarBanco() {
         try {
             sql = "CREATE DATABASE IF NOT EXISTS RBC;";
             STATEMENT = CONNECTION.createStatement();
@@ -84,11 +91,11 @@ public class BancoDeDados {
     /**
      * Criar tabelas no Banco de Dados RBC.
      *
-     * @param comando Comando a ser executado em SQL para a cria��o de tabela
-     * @exception Exce��o SQL
-     * @exception Exce��o SQL
+     * @param comando Comando a ser executado em SQL para a criação de tabela
+     * @exception Exceção SQL
+     * @exception Exceção SQL
      */
-    public void adicionarTabelas(String comando) {
+    private void adicionarTabelas(String comando) {
 
         try {
             STATEMENT = CONNECTION.createStatement();
@@ -106,22 +113,22 @@ public class BancoDeDados {
     }
 
     /**
-     * Cria todas as Tabelas no BD RCB caso elas n�o existam.
+     * Cria todas as Tabelas no BD RCB caso elas não existam.
      */
-    public void criarTabelas() {
+    private void criarTabelas() {
         adicionarTabelaCaso();
     }
 
     /**
-     * M�todo para adicionar a tabela caso ao bando de dados.
+     * Metodo para adicionar a tabela caso ao bando de dados.
      */
-    public void adicionarTabelaCaso() {
+    private void adicionarTabelaCaso() {
 
         sql = "CREATE TABLE IF NOT EXISTS caso ("
                 + "id INT NOT NULL AUTO_INCREMENT,"
                 + "descricao TEXT NOT NULL,"
-                + "solucao TEXT NOT NULL,"
-                + "avaliacao BIT(1) NOT NULL DEFAULT 0,"
+                + "solucao TEXT,"
+                + "avaliacao INT(1),"
                 + "FULLTEXT (descricao),"
                 + "CONSTRAINT pk_id PRIMARY KEY (id)"
                 + ") ENGINE=MyISAM DEFAULT CHARSET=utf8;";
