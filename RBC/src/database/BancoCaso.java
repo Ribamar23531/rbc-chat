@@ -1,6 +1,8 @@
 package database;
 
 import engine.Caso;
+import engine.Entrada;
+import engine.Saida;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -11,7 +13,7 @@ public class BancoCaso extends Operacoes {
     public BancoCaso() {
         BancoDeDados bancoDeDados = new BancoDeDados();
     }
-    
+
     /**
      * Método que cadastra o caso ao banco de dados.
      *
@@ -26,40 +28,34 @@ public class BancoCaso extends Operacoes {
 
         executeStatement(sql);
     }
-    
-    public void casoSemelhante(Caso caso) {
-        
-    }
-    
+
     /**
-     * Lista todos os caso cadastrados no sistema.
-     *
-     * @return um ArrayList de String com descricao-id dos casos cadastrados.
+     * Metodo para encontrar o caso mais semelhante no base de dados.
+     * 
+     * @param caso é caso
+     * @return Retorna o caso mais selhementa, se houver, senão retorna null
      */
-    public ArrayList<Object> listarCaso() {
+    public Caso casoSemelhante(Caso caso) {
 
-        ArrayList<Object> listaCaso = new ArrayList<>();
-
-        sql = "SELECT descricao FROM rbc.caso;";
+        sql = "SELECT descricao, solucao, avaliacao "
+                + "FROM rbc.caso WHERE MATCH(descricao) AGAINST ('"
+                + caso.getProblema().getTexto()+ "' IN NATURAL LANGUAGE MODE);";
 
         try {
-            BancoDeDados.STATEMENT = BancoDeDados.CONNECTION
-                    .createStatement();
-            BancoDeDados.RESULTSET = BancoDeDados.STATEMENT
-                    .executeQuery(sql);
+            BancoDeDados.PREPAREDSTATEMENT = BancoDeDados.CONNECTION.prepareStatement(sql);
+            BancoDeDados.RESULTSET = BancoDeDados.PREPAREDSTATEMENT.executeQuery();
 
             try {
-                while (BancoDeDados.RESULTSET.next()) {
-
-                    // Variavel tempor�ria para a consulta dos dados
-                    String consulta = BancoDeDados.RESULTSET
-                            .getString("descricao")
-                            + " - "
-                            + BancoDeDados.RESULTSET.getInt("id");
-
-                    // Adicionando nome-matricula ao Array de String
-                    listaCaso.add(consulta);
-
+                if (BancoDeDados.RESULTSET.next()) {
+                    
+                    String descricao = BancoDeDados.RESULTSET.getString("descricao");
+                    String solucao = BancoDeDados.RESULTSET.getString("solucao");
+                    int avaliacao = BancoDeDados.RESULTSET.getInt("avaliacao");
+                    
+                    Caso casoSemelhante = new Caso(new Entrada(descricao), new Saida(solucao));
+                    casoSemelhante.setAvaliacao(avaliacao);
+                    
+                    return casoSemelhante;
                 }
             } catch (SQLException sQLException) {
                 sQLException.printStackTrace();
@@ -68,7 +64,8 @@ public class BancoCaso extends Operacoes {
         } catch (SQLException sQLException) {
             sQLException.printStackTrace();
         }
-        return listaCaso;
+
+        return null;
     }
 
     /**
