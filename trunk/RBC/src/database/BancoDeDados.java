@@ -116,7 +116,7 @@ public class BancoDeDados {
                 + "avaliacao INT(1),"
                 + "FULLTEXT (descricao),"
                 + "CONSTRAINT pk_id PRIMARY KEY (id)"
-                + ") ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+                + ") ENGINE=InnoBD DEFAULT CHARSET=utf8;";
 
         adicionarTabelas(sql);
     }
