@@ -34,15 +34,12 @@ public class BancoDeDados {
     private void conectarLocal() {
         try {
             Class.forName(util.Banco.DRIVER_MYSQL);
-            try {
-                CONNECTION = DriverManager.getConnection(util.Banco.CONEXAO_BANCO_LOCAL,
-                        util.Banco.USER_MYSQL,
-                        util.Banco.PASSWORD_MYSQL);
-            } catch (SQLException sQLException) {
-                sQLException.printStackTrace();
-            }
-        } catch (ClassNotFoundException classNotFoundException) {
-            classNotFoundException.printStackTrace();
+
+            CONNECTION = DriverManager.getConnection(util.Banco.CONEXAO_BANCO_LOCAL,
+                    util.Banco.USER_MYSQL,
+                    util.Banco.PASSWORD_MYSQL);
+        } catch (SQLException | ClassNotFoundException exception) {
+            exception.printStackTrace();
         }
     }
 
@@ -54,15 +51,12 @@ public class BancoDeDados {
     private void conectarBanco() {
         try {
             Class.forName(util.Banco.DRIVER_MYSQL);
-            try {
-                CONNECTION = DriverManager.getConnection(
-                        util.Banco.CONEXAO_BANCO_LOCAL + util.Banco.NOME_BANCO,
-                        util.Banco.USER_MYSQL, util.Banco.PASSWORD_MYSQL);
-            } catch (SQLException sQLException) {
-                sQLException.printStackTrace();
-            }
-        } catch (ClassNotFoundException classNotFoundException) {
-            classNotFoundException.printStackTrace();
+
+            CONNECTION = DriverManager.getConnection(
+                    util.Banco.CONEXAO_BANCO_LOCAL + util.Banco.NOME_BANCO,
+                    util.Banco.USER_MYSQL, util.Banco.PASSWORD_MYSQL);
+        } catch (SQLException | ClassNotFoundException exception) {
+            exception.printStackTrace();
 
         }
     }
@@ -78,11 +72,7 @@ public class BancoDeDados {
             sql = "CREATE DATABASE IF NOT EXISTS RBC;";
             STATEMENT = CONNECTION.createStatement();
 
-            try {
-                STATEMENT.executeUpdate(sql);
-            } catch (SQLException sQLException) {
-                sQLException.printStackTrace();
-            }
+            STATEMENT.executeUpdate(sql);
         } catch (SQLException sQLException) {
             sQLException.printStackTrace();
         }
@@ -100,16 +90,11 @@ public class BancoDeDados {
         try {
             STATEMENT = CONNECTION.createStatement();
 
-            try {
-                STATEMENT.executeUpdate(comando);
+            STATEMENT.executeUpdate(comando);
 
-            } catch (SQLException sQLException) {
-                sQLException.printStackTrace();
-            }
         } catch (SQLException sQLException) {
             sQLException.printStackTrace();
         }
-
     }
 
     /**

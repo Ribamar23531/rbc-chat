@@ -1,16 +1,14 @@
 package runtime;
 
+import database.BancoCaso;
+import engine.Caso;
+import engine.Entrada;
+import engine.Saida;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
-
-import database.BancoCaso;
-
-import engine.Caso;
-import engine.Entrada;
-import engine.Saida;
 
 public class Main {
 	
@@ -90,7 +88,7 @@ public class Main {
 		}
 		
 		else if (opc.equals("3")){
-			System.out.println(banco.listarCaso());
+			//System.out.println(banco.listarCaso());
 		}
 	}
 }
