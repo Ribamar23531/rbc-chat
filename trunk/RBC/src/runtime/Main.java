@@ -1,14 +1,16 @@
 package runtime;
 
-import database.BancoCaso;
-import engine.Caso;
-import engine.Entrada;
-import engine.Saida;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
+
+import database.BancoCaso;
+
+import engine.Caso;
+import engine.Entrada;
+import engine.Saida;
 
 public class Main {
 	
@@ -68,15 +70,24 @@ public class Main {
 							caso.setSolucao(caso_recuperado.getSolucao());
 							System.out.println("Xaat disse: "+ caso.getSolucao().getTexto());
 							}
+						else if (caso_recuperado.getAvaliacao() == 0){
+							caso.setSolucao(caso_recuperado.getSolucao());
+							System.out.println("Xaat disse para voce nao fazer: "+ caso.getSolucao().getTexto());
+							}
+						
 						System.out.println("Por favor, avalie minha resposta. Responda Sim ou Nao");
 						String esc = scan.next();
 						if (esc.equalsIgnoreCase("Sim") || esc.equalsIgnoreCase("S")){
 							System.out.println("A solucao oferecia por mim, foi boa? Se sim, responda Sim ou s");
 							String a = scan.next();
 							if(a.equalsIgnoreCase("Sim")|| a.equalsIgnoreCase("S")){
-								banco.cadastrarCaso(caso);
+								caso.setAvaliacao(1);
 								
 							}
+							else{caso.setAvaliacao(0);}
+						}
+						if  (banco.casoSemelhanteMatch(caso) <= 80){
+							banco.cadastrarCaso(caso);
 						}
 						
 						}
@@ -87,9 +98,6 @@ public class Main {
 			}
 		}
 		
-		else if (opc.equals("3")){
-			//System.out.println(banco.listarCaso());
-		}
 	}
 }
 
