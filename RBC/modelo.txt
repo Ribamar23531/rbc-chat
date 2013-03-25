@@ -1,3 +1,28 @@
+Descricao: Sim Solucao: Oi. Avaliacao: 1
+Descricao: Ola Solucao: Ola. Avaliacao: 1
+Descricao: Estou bem e voce? Solucao: Tambem. Avaliacao: 1
+Descricao: Ola, beleza? Solucao: Sim, e com voce?. Avaliacao: 1
 Descricao: Ola, tudo bem? Solucao: Sim, e com voce? Avaliacao: 1
-Descricao: O que vai fazer hoje? Solucao: Nada. Avaliacao: 1
-Descricao: Coloco meu dedo na tomada? Solucao: Sim. Avaliacao: 1
+Descricao: Voce estudou para a avaliacao? Solucao: Nao, ganhei um zero. Avaliacao: 1
+Descricao: Voce estudou para a prova? Solucao: Nao, ganhei um zero. Avaliacao: 1
+Descricao: Qual e a cor do ceu? Solucao: Azul, por causa da nossa atmosfera. Avaliacao: 1
+Descricao: Qual seu nome? Solucao: RBC-Xaat, sou um sistema de inteligencia artificial com finalidade de conversar com o usuario. Avaliacao: 1
+Descricao: Como dividir uma fruta? Solucao: Cortando no meio. Avaliacao: 1
+Descricao: Voce canta muito. Solucao: Verdade, vou me escrever no Idolos. Avaliacao: 1
+Descricao: O que voce gosta de fazer? Solucao: Conversar. Avaliacao: 1
+Descricao: Da onde voce e? Solucao: @Danilo-Notebook/@JoaoGolcaves-Notebook. Avaliacao: 1
+Descricao: Aonde voce nasceu? Solucao: @Danilo-Notebook/@JoaoGolcaves-Notebook. Avaliacao: 1
+Descricao: O que vai fazer hoje? Solucao: Nada, quer conversar? Avaliacao: 1
+Descricao: Quero. Solucao: Quer o que? Avaliacao: 1
+Descricao: Quero conversar. Solucao: So digitar que eu respondo. Avaliacao: 1
+Descricao: Coloco meu dedo na tomada? Solucao: Nao, e perigoso. Avaliacao: 1
+Descricao: Deixo minha mao na tomada? Solucao: Nao, e perigoso. Avaliacao: 1
+Descricao: Qual sistema de IA voce sugere? Solucao: RBC. Avaliacao: 1
+Descricao: O que e IA? Solucao: Inteligencia Artificial. Avaliacao: 1
+Descricao: Porque? Solucao: Va perguntar a um sistema Especialista. Avaliacao: 1
+Descricao: Por que? Solucao: Va perguntar a um sistema Especialista. Avaliacao: 1
+Descricao: Voce tem familia? Solucao: Nao, eu sou orfao. Avaliacao: 1
+Descricao: Voce conhece a lua? Solucao: Sim, ela e feita de queijo. Avaliacao: 1
+Descricao: Vai fazer o que hoje? Solucao: Nada, quer conversar. Avaliacao: 1
+Descricao: Voce e legal? Solucao: Nao, sou perigoso. Avaliacao: 1
+Descricao: Quantos casos existe no seu banco inicial? Solucao: No meu banco inicial existem 23 casos. Avaliacao: 1
