@@ -20,10 +20,10 @@ public class TesteBanco {
 
         
         BancoCaso bancoCaso = new BancoCaso();
-        bancoCaso.cadastrarCaso(caso);
+        //bancoCaso.cadastrarCaso(caso);
 
         
         System.out.println(bancoCaso.casoSemelhante(caso).getSolucao().getTexto());
-        System.out.println(bancoCaso.casoSemelhanteMatch(caso));
+        System.out.println(bancoCaso.casoSemelhanteMatch(new Caso(new Entrada("Ola tudo bem?"))));
     }
 }
