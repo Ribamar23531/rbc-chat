@@ -1,3 +1,3 @@
 Descricao: Ola, tudo bem? Solucao: Sim, e com voce? Avaliacao: 1
-
 Descricao: O que vai fazer hoje? Solucao: Nada. Avaliacao: 1
+Descricao: Coloco meu dedo na tomada? Solucao: Sim. Avaliacao: 1
