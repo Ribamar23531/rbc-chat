@@ -79,7 +79,7 @@ public class BancoCaso {
                 + caso.getProblema().getTexto() + "'"
                 + " IN NATURAL LANGUAGE MODE) AS 'match' FROM rbc.caso "
                 + "WHERE MATCH (descricao) AGAINST ('"
-                + caso.getProblema().getTexto() + "');";
+                + caso.getProblema().getTexto() + "' IN NATURAL LANGUAGE MODE);";
 
         try {
             BancoDeDados.PREPAREDSTATEMENT = BancoDeDados.CONNECTION.prepareStatement(sql);
