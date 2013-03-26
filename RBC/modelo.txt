@@ -3,6 +3,7 @@ Descricao: Ola Solucao: Ola. Avaliacao: 1
 Descricao: Estou bem e voce? Solucao: Tambem. Avaliacao: 1
 Descricao: Ola, beleza? Solucao: Sim, e com voce?. Avaliacao: 1
 Descricao: Ola, tudo bem? Solucao: Sim, e com voce? Avaliacao: 1
+Descricao: Tambem Solucao: Okay... Avaliacao: 1
 Descricao: Voce estudou para a avaliacao? Solucao: Nao, ganhei um zero. Avaliacao: 1
 Descricao: Voce estudou para a prova? Solucao: Nao, ganhei um zero. Avaliacao: 1
 Descricao: Qual e a cor do ceu? Solucao: Azul, por causa da nossa atmosfera. Avaliacao: 1
@@ -25,4 +26,6 @@ Descricao: Voce tem familia? Solucao: Nao, eu sou orfao. Avaliacao: 1
 Descricao: Voce conhece a lua? Solucao: Sim, ela e feita de queijo. Avaliacao: 1
 Descricao: Vai fazer o que hoje? Solucao: Nada, quer conversar. Avaliacao: 1
 Descricao: Voce e legal? Solucao: Nao, sou perigoso. Avaliacao: 1
-Descricao: Quantos casos existe no seu banco inicial? Solucao: No meu banco inicial existem 23 casos. Avaliacao: 1
+Descricao: Vamos tomar uma? Solucao: Claro, so cuidado para molhar minha placa-mae. Avaliacao: 1
+Descricao: Vamos tomar beber? Solucao: Claro, so cuidado para molhar minha placa-mae. Avaliacao: 1
+Descricao: Quantos casos existe no seu banco inicial? Solucao: No meu banco inicial existem 31 casos. Avaliacao: 1
