@@ -83,10 +83,10 @@ public class Main {
 						else {
 							caso.setAvaliacao(0);
 							}
-						System.out.println("Descricao: "+caso.getProblema());
-						System.out.println("Solucao: "+ caso.getSolucao());
+						System.out.println("Descricao: "+caso.getProblema().getTexto());
+						System.out.println("Solucao: "+ caso.getSolucao().getTexto());
 						System.out.println("Avaliacao: "+ confirm_avaliacao);
-						System.out.println("Tudo certo?");
+						System.out.println("Tudo certo? (Responda Sim ou S, para confirmar.)");
 						String scan_confirm = buff.readLine();
 						
 						if (scan_confirm.equalsIgnoreCase("Sim") || scan_confirm.equalsIgnoreCase("S")) {
