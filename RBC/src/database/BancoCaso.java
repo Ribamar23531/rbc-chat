@@ -20,7 +20,7 @@ public class BancoCaso {
      */
     public void cadastrarCaso(Caso novoCaso) {
 
-        sql = "INSERT INTO rbc.caso (descricao, solucao, avaliacao)"
+        sql = "INSERT INTO RBC.caso (descricao, solucao, avaliacao)"
                 + "VALUES ('" + novoCaso.getProblema().getTexto() + "'"
                 + ",'" + novoCaso.getSolucao().getTexto() + "'"
                 + ",'" + novoCaso.getAvaliacao() + "');";
@@ -37,7 +37,7 @@ public class BancoCaso {
     public Caso casoSemelhante(Caso caso) {
 
         sql = "SELECT descricao, solucao, avaliacao "
-                + "FROM rbc.caso WHERE MATCH(descricao) AGAINST ('"
+                + "FROM RBC.caso WHERE MATCH(descricao) AGAINST ('"
                 + caso.getProblema().getTexto() + "' IN NATURAL LANGUAGE MODE);";
 
         try {
@@ -77,7 +77,7 @@ public class BancoCaso {
 
         sql = "SELECT MATCH (descricao) AGAINST ('"
                 + caso.getProblema().getTexto() + "'"
-                + " IN NATURAL LANGUAGE MODE) AS 'match' FROM rbc.caso "
+                + " IN NATURAL LANGUAGE MODE) AS 'match' FROM RBC.caso "
                 + "WHERE MATCH (descricao) AGAINST ('"
                 + caso.getProblema().getTexto() + "' IN NATURAL LANGUAGE MODE);";
 
@@ -104,7 +104,7 @@ public class BancoCaso {
      */
     public void atualizarCaso(Caso caso) {
 
-        sql = "UPDATE rbc.caso SET descricao = ?, solucao = ?, avaliacao = ? WHERE id = ?;";
+        sql = "UPDATE RBC.caso SET descricao = ?, solucao = ?, avaliacao = ? WHERE id = ?;";
 
         try {
             BancoDeDados.PREPAREDSTATEMENT = BancoDeDados.CONNECTION
@@ -127,7 +127,7 @@ public class BancoCaso {
      */
     public void removerCaso(Caso caso) {
 
-        sql = "DELETE FROM rbc.caso WHERE id = ?;";
+        sql = "DELETE FROM RBC.caso WHERE id = ?;";
 
         try {
 
