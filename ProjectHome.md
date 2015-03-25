@@ -1,0 +1,1 @@
+Um sistema de inteligência artificial que, baseado em casos anteriores, é capaz de dar respostas inteligentes ao usuário, tudo em forma de linguagem natural.
